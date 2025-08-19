@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Application</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1 style="text-align:center;">Calculator</h1>
+    <form>
+        <label for="fnumber">First Number</label><br>
+        <input type="number" id="fnumber" name="fnumber"><br>
+        <label for="snumber">Second Number</label><br>
+        <input type="number" id="snumber" name="snumber"><br><br>
+        <p id="result">result = </p>
+
+
+        <button type="button" id="add">Add</button>
+        <button type="button" id="subtract">Subtract</button>
+        <button type="button" id="multiply">Multiply</button>
+        <button type="button" id="divide">Divide</button>
+    </form>
+    <script>
+        const fnumber = document.getElementById('fnumber');
+        const snumber = document.getElementById('snumber');
+        const result = document.getElementById('result');
+      
+        document.getElementById('add').addEventListener('click', () => {
+          const sum = Number(fnumber.value) + Number(snumber.value);
+          result.textContent = `result = ${sum}`;
+        });
+      
+        document.getElementById('subtract').addEventListener('click', () => {
+          const diff = Number(fnumber.value) - Number(snumber.value);
+          result.textContent = `result = ${diff}`;
+        });
+      
+        document.getElementById('multiply').addEventListener('click', () => {
+          const product = Number(fnumber.value) * Number(snumber.value);
+          result.textContent = `result = ${product}`;
+        });
+      
+        document.getElementById('divide').addEventListener('click', () => {
+          if (Number(snumber.value) === 0) {
+            result.textContent = "result = Cannot divide by zero!";
+          } else {
+            const quotient = Number(fnumber.value) / Number(snumber.value);
+            result.textContent = `result = ${quotient}`;
+          }
+        });
+      </script>
